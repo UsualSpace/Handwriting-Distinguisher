@@ -8,7 +8,7 @@
 import numpy as np 
 import skimage.io as io
 
-img = io.imread("../sentences_alyajouri.jpg")
+img = io.imread("../sentences_brodowicz.jpg")
 print(img.shape)
 
 # size of the sentence sheets we used, in inches.
@@ -26,16 +26,17 @@ def itopx(inches_y):
 def itop(inch_coords):
     return (itopy(inch_coords[0]), itopx(inch_coords[1]))
 
-# inch based coordinates.
-tl = (1 + 2 * 4, 1)
-br = (tl[0] + 1, img.shape[1])
+for i in range(5):
+    # inch based coordinates.
+    tl = (1 + 2 * i, 1)
+    br = (tl[0] + 1, img.shape[1])
 
-# convert to pixel coordinates.
-tl = itop(tl)
-br = itop(br)
-
-crop = img[tl[0]:br[0], tl[1]:br[1], :]
-print(crop.shape)
+    # convert to pixel coordinates.
+    tl = itop(tl)
+    br = itop(br)
+    crop = img[tl[0]:br[0], tl[1]:br[1], :]
+    io.imsave("steve_" + str(i) + ".jpg", crop)
+    print(crop.shape)
 
 # testing
 import matplotlib.pyplot as plt
