@@ -21,7 +21,7 @@ def process(person, id):
 
     # force pixel values below a 'threshold' to be zero, this clears up alot of visible noise
     # from the scanned samples.
-    threshold = 0.00
+    threshold = 0.0
     img[img < threshold] = 0
 
     # center image contents based on the pixel coordinates of the "center of mass".
@@ -34,7 +34,7 @@ def process(person, id):
 def main():
     for person in people:
         for i in range(total_sentences):
-            process(person, i)
+            process(person, i + 1)
 
 if __name__ == "__main__":
     main()

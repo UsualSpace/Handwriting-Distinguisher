@@ -4,7 +4,8 @@
 # Purpose: The purpose of this file is to provide commonly used functions and data structures
 #          throughout this project.
 
-total_sentences = 10
+total_sentences = 100
+sheet_resolution = (784, 612)
 
 people = [
     "alyajouri",
